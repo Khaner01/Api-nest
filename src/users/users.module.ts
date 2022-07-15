@@ -7,11 +7,11 @@ import { UsersService } from './users.service';
 @Module({
   imports: [TypeOrmModule.forFeature([User],{
     type: 'mysql',
-    host: 'localhost',
+    host: process.env.HOST,
     port: 3306,
-    username: 'root',
-    password: 'password',
-    database: 'crud',
+    username: process.env.USERDB,
+    password: process.env.PASSWORD,
+    database: process.env.NAMEDB,
     entities: [__dirname + '/**/*.entity{.ts,.js}'],
     migrationsRun: true,
     logging: true,
